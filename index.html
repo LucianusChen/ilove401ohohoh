@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>個人網站 — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --radius:14px;
+      --max-width:960px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111827;display:flex;justify-content:center;padding:40px 20px}
+    .wrap{width:100%;max-width:var(--max-width)}
+
+    header{display:flex;align-items:center;gap:20px;margin-bottom:28px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px}
+    h1{margin:0;font-size:28px;line-height:1}
+    p.lead{margin:4px 0 0;color:var(--muted)}
+
+    .hero{display:grid;grid-template-columns:160px 1fr;gap:24px;background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(15,23,42,0.06);align-items:center}
+    .photo{width:160px;height:160px;border-radius:12px;overflow:hidden;flex-shrink:0;background:#eee;display:flex;align-items:center;justify-content:center}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .bio h2{margin:0 0 8px;font-size:20px}
+    .bio p{margin:0 0 12px;color:var(--muted);line-height:1.5}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn-primary{background:var(--accent);color:white}
+    .btn-ghost{background:transparent;border:1px solid #e6edf8;color:var(--accent)}
+
+    .works{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 14px rgba(12,18,30,0.04)}
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0 0 8px;color:var(--muted);font-size:14px}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:720px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      .photo{margin:0 auto}
+      header{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">YN</div>
+      <div>
+        <h1>Your Name</h1>
+        <p class="lead">職稱 / 學科 / 簡短標語</p>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="個人簡介">
+      <div class="photo">
+        <!-- 把 your-photo.jpg 換成你的照片檔名 (建議正方形 800x800px) -->
+        <img src="your-photo.jpg" alt="Your Name 的照片">
+      </div>
+
+      <div class="bio">
+        <h2>關於我</h2>
+        <p>嗨，我是 Your Name，現職 / 任教於 XXX。這裡放一段 2–3 句的自我介紹：你的專長、興趣與你希望訪客知道的重要資訊（例如：擅長教學、專案、聯絡方式等）。</p>
+
+        <div class="cta">
+          <a class="btn btn-primary" href="#works">我的作品</a>
+          <a class="btn btn-ghost" href="mailto:you@example.com">聯絡我</a>
+        </div>
+
+        <div class="works" id="works">
+          <!-- 範例三個作品 PDF，放到與 index.html 同一資料夾下的 /works/ 目錄 -->
+          <article class="card">
+            <h3>作品一：教案範例.pdf</h3>
+            <p class="small">簡短說明：介紹課程設計重點。</p>
+            <a class="small" href="works/作品一.pdf" target="_blank" rel="noopener">檢視 / 下載 PDF</a>
+          </article>
+
+          <article class="card">
+            <h3>作品二：學生作品集.pdf</h3>
+            <p class="small">簡短說明：學生專題展示與成果。</p>
+            <a class="small" href="works/作品二.pdf" target="_blank" rel="noopener">檢視 / 下載 PDF</a>
+          </article>
+
+          <article class="card">
+            <h3>作品三：課程大綱.pdf</h3>
+            <p class="small">簡短說明：課程目標與單元安排。</p>
+            <a class="small" href="works/作品三.pdf" target="_blank" rel="noopener">檢視 / 下載 PDF</a>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name — 版權所有
+    </footer>
+  </div>
+
+  <script>
+    // 自動填入今年年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 小提示：若要快速預覽，把 your-photo.jpg 與 works/ 資料夾放在同一目錄即可。
+  </script>
+</body>
+</html>
